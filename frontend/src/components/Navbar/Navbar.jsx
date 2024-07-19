@@ -5,7 +5,7 @@ const Navbar = () => {
     const [menu, setMenu] = useState("home");
   return (
     <div className="flex justify-between items-center py-[20px]">
-      <img src={assets.logo} alt="" className="w-[150px] h-[36px]" />
+      <img src={assets.logo} alt="" className="w-[150px] h-[33px]" />
       <ul className="flex gap-x-[20px] text-[#49557e] text-[18px]">
         <li
           onClick={() => setMenu("home")}
