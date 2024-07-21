@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { assets } from '../../assets/assets'
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [menu, setMenu] = useState("home");
@@ -11,30 +12,30 @@ const Navbar = () => {
         className=" lg:w-[150px] md:w-[120px] w-[100px] lg:h-[33px] md:h-[28px] h-[24px]"
       />
       <ul className="md:flex hidden lg:gap-x-[20px] md:gap-x-[13px]  text-[#49557e] lg:text-[18px] md:text-[15px]">
-        <li
+        <Link to={"/"}
           onClick={() => setMenu("home")}
           className={`cursor-pointer ${menu === "home" ? "active" : ""}`}
         >
           home
-        </li>
-        <li
+        </Link>
+        <a href='#explore-menu'
           onClick={() => setMenu("menu")}
           className={`${menu === "menu" ? "active" : ""} cursor-pointer`}
         >
           menu
-        </li>
-        <li
+        </a>
+        <a href='#app-download'
           onClick={() => setMenu("mobile-app")}
           className={` cursor-pointer ${menu === "mobile-app" ? "active" : ""}`}
         >
           mobile-app
-        </li>
-        <li
+        </a>
+        <a href='#contact-us'
           onClick={() => setMenu("contact-us")}
           className={` cursor-pointer ${menu === "contact-us" ? "active" : ""}`}
         >
           contact us
-        </li>
+        </a>
       </ul>
       {/* right side  */}
       <div className="flex items-center lg:gap-[40px] md:gap-[24px] sm:gap-[20px] gap-[16px]">
