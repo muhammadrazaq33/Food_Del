@@ -37,7 +37,7 @@ const Navbar = () => {
         </li>
       </ul>
       {/* right side  */}
-      <div className="flex items-center lg:gap-[40px] md:gap-[24px] gap-[24px]">
+      <div className="flex items-center lg:gap-[40px] md:gap-[24px] sm:gap-[20px] gap-[16px]">
         <img src={assets.search_icon} className="lg:w-[26px] w-[20px]" alt="" />
         <div className="relative">
           <img
