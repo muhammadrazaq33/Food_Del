@@ -71,5 +71,11 @@ body::-webkit-scrollbar{
   transition: 0.3s;
   animation: fadeIn 1s;
 }
+.footer_content{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 80px;
+}
 
 
