@@ -77,6 +77,13 @@ body::-webkit-scrollbar{
   grid-template-columns: 2fr 1fr 1fr;
   gap: 80px;
 }
+@media (max-width: 750px){
+  .footer_content{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+}
 .app-download{
   margin: auto auto;
   margin-top: 100px;
