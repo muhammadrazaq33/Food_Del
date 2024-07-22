@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { assets } from '../../assets/assets'
 import { Link } from 'react-router-dom';
+import { StoreContext } from '../../Context/StoreContext';
 
 const Navbar = ({setShowLogin}) => {
-    const [menu, setMenu] = useState("home");
+  const [menu, setMenu] = useState("home");
+  const { getTotalCartAmount } = useContext(StoreContext);
   return (
     <div className="flex justify-between items-center py-[20px]">
       <Link to={"/"}>
@@ -55,7 +57,7 @@ const Navbar = ({setShowLogin}) => {
               alt=""
             />
           </Link>
-          <div className="absolute min-w-[10px] min-h-[10px] bg-[tomato] rounded-[5px] top-[-8px] right-[-8px]"></div>
+          <div className={getTotalCartAmount() === 0 ? "" : "absolute min-w-[10px] min-h-[10px] bg-[tomato] rounded-[5px] top-[-8px] right-[-8px]"}></div>
         </div>
         <button
           onClick={() => setShowLogin(true)}
