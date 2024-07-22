@@ -113,3 +113,32 @@ body::-webkit-scrollbar{
   font-size: 15px;
   animation: fadeIn 0.5s;
 }
+.cart-item-title{
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+  align-items: center;
+  /* justify-items: start; */
+  color: grey;
+  font-size: max(1vw,12px);
+}
+.cart-item{
+  margin: 10px 0px;
+  color: black;
+}
+.cart-btn{
+  border: none;
+  color: white;
+  background-color: tomato;
+  width: max(18vw,200px);
+  padding: 12px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.promo-btn{
+  width: max(10vw,150px);
+  padding: 12px 5px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
