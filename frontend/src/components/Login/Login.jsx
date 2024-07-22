@@ -6,39 +6,39 @@ const Login = ({ setShowLogin }) => {
   return (
     <div className="absolute z-[1] w-[100%] h-[100%] bg-[#00000090] grid">
       <form className='login-container'>
-        <div>
-          <h1>{currentState}</h1>
-          <img
+        <div className='flex justify-between items-center text-black'>
+          <h1 className='font-semibold text-[18px]'>{currentState}</h1>
+          <img className='w-[16px] cursor-pointer'
             src={assets.cross_icon}
             onClick={() => setShowLogin(false)}
             alt=""
           />
         </div>
-        <div>
+        <div className='flex flex-col gap-[20px]'>
           {currentState === "Login" ? (
             <></>
           ) : (
-            <input type="text" placeholder="Enter name" required />
+            <input className='outline-none p-[10px] rounded-[4px] border-[1px] border-[#c9c9c9]' type="text" placeholder="Enter name" required />
           )}
-          <input type="email" placeholder="Enter email" required />
-          <input type="password" placeholder="Enter password" required />
+          <input className='outline-none p-[10px] rounded-[4px] border-[1px] border-[#c9c9c9]' type="email" placeholder="Enter email" required />
+          <input className='outline-none p-[10px] rounded-[4px] border-[1px] border-[#c9c9c9]' type="password" placeholder="Enter password" required />
         </div>
-        <button>
+        <button className='border-none p-[10px] rounded-[4px] cursor-pointer bg-[tomato] text-[15px] text-[white] '>
           {currentState === "Sign up" ? "Create Account" : "Login"}
         </button>
-        <div>
-          <input type="checkbox" required />
+        <div className='flex items-start gap-[8px] -mt-[15px]'>
+          <input type="checkbox" className='mt-[5.8px]' required />
           <p>By continuing, i agree to the terms of use and privacy policy.</p>
         </div>
         {currentState === "Login" ? (
           <p>
             Create a new account?{" "}
-            <span onClick={() => setCurrentState("Sign up")}>Click here</span>
+            <span onClick={() => setCurrentState("Sign up")}  className='cursor-pointer text-[tomato] font-semibold' > Click here</span>
           </p>
         ) : (
           <p>
             Already have an account?{" "}
-            <span onClick={() => setCurrentState("Login")}>Login here</span>
+            <span onClick={() => setCurrentState("Login")} className='cursor-pointer text-[tomato] font-semibold'> Login here</span>
           </p>
         )}
       </form>
