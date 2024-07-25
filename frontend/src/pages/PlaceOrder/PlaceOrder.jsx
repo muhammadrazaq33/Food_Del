@@ -4,29 +4,29 @@ import { StoreContext } from '../../Context/StoreContext';
 const PlaceOrder = () => {
   const { getTotalCartAmount } = useContext(StoreContext);
   return (
-    <form>
+    <form className='flex items-start  justify-between mt-[100px] gap-[50px]'>
       {/* left side*/}
-      <div>
-        <p>Delivery Information</p>
-        <div>
-          <input type="text" placeholder="First Name" />
-          <input type="text" placeholder="Last Name" />
+      <div className='place-order-left'>
+        <p className='text-[30px] mb-[30px] font-semibold'>Delivery Information</p>
+        <div className='flex gap-[10px]'>
+          <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="First Name" />
+          <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="Last Name" />
         </div>
-        <input type="email" placeholder="Email address" />
-        <input type="text" placeholder="Street" />
-        <div>
-          <input type="text" placeholder="City" />
-          <input type="text" placeholder="State" />
+        <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="email" placeholder="Email address" />
+        <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="Street" />
+        <div className='flex gap-[10px]'>
+          <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="City" />
+          <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="State" />
         </div>
-        <div>
-          <input type="text" placeholder="Zip code" />
-          <input type="text" placeholder="Country" />
+        <div className='flex gap-[10px]'>
+          <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="Zip code" />
+          <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="Country" />
         </div>
-        <input type="text" placeholder="Phone" />
+        <input className='p-[10px] mb-[12px] w-[100%] border border-[#555] rounded-[4px] outline-[tomato]' type="text" placeholder="Phone" />
       </div>
       {/* end of left side */}
       {/* right side */}
-      <div>
+      <div className='place-order-right'>
         <div className="flex-1 flex flex-col gap-[20px]">
           <h1>Cart Totals</h1>
           <div>
@@ -37,15 +37,15 @@ const PlaceOrder = () => {
             <hr className="my-[10px]" />
             <div className="flex justify-between text-[#555]">
               <p>Delivery Fee</p>
-              <p>${2}</p>
+              <p>${getTotalCartAmount() === 0 ? 0 : 2}</p>
             </div>
             <hr className="my-[10px]" />
             <div className="flex justify-between text-[#555]">
               <b>Total</b>
-              <b>${getTotalCartAmount() + 2}</b>
+              <b>${getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 2}</b>
             </div>
           </div>
-          <button className="cart-btn">PROCEED TO CHECKOUT</button>
+          <button className="cart-btn mt-[30px]">PROCEED TO PAYMENT</button>
         </div>
       </div>
       {/*end of right side */}

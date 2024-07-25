@@ -142,3 +142,11 @@ body::-webkit-scrollbar{
   border: none;
   border-radius: 4px;
 }
+.place-order-left{
+  width: 42%;
+  max-width: max(30%, 500px);
+}
+.place-order-right{
+  width: 36%;
+  max-width: max(30%, 500px);
+}
