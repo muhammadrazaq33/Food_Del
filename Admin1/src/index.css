@@ -22,3 +22,7 @@ hr{
 .app-content{
   display: flex;
 }
+
+a{
+  text-decoration: none;
+}
