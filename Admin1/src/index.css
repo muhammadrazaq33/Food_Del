@@ -26,3 +26,8 @@ hr{
 a{
   text-decoration: none;
 }
+.flex-col1{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
