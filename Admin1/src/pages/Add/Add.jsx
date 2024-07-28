@@ -45,9 +45,7 @@ const Add = () => {
     }
   }
 
-  useEffect(() => {
-    console.log(data)
-  },[data])
+  
   return (
     <div className="add">
       <form className="flex-col1" onSubmit={onSubmitData}>
