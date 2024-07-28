@@ -4,9 +4,7 @@ import { assets } from '../../assets/assets'
 import axios from "axios";
 import { toast } from 'react-toastify';
 
-const Add = () => {
-
-  const url = "http://localhost:4000"
+const Add = ({url}) => {
 
   const [image, setImage] = useState(false);
   const [data, setData] = useState({
@@ -19,7 +17,7 @@ const Add = () => {
   const onChangeHandler = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    setData(data=>({...data,[name]:value}))
+    setData(data => ({ ...data, [name]: value }))
   }
 
   const onSubmitData = async (e) => {
