@@ -10,6 +10,10 @@
 }
 .add-image-upload img{
     width: 120px;
+    border: 1px solid violet;
+}
+.add-image-upload label{
+    width: 120px;
 }
 .add-product-name, .add-product-description{
     width: max(40%, 280px);
