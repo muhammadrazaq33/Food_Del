@@ -1,11 +1,12 @@
 import React, { useContext, useState } from 'react'
 import { assets } from '../../assets/assets'
+import "./Navbar.css";
 import { Link } from 'react-router-dom';
 import { StoreContext } from '../../Context/StoreContext';
 
 const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const { getTotalCartAmount,token,setToken } = useContext(StoreContext);
   return (
     <div className="flex justify-between items-center py-[20px]">
       <Link to={"/"}>
@@ -57,14 +58,37 @@ const Navbar = ({setShowLogin}) => {
               alt=""
             />
           </Link>
-          <div className={getTotalCartAmount() === 0 ? "" : "absolute min-w-[10px] min-h-[10px] bg-[tomato] rounded-[5px] top-[-8px] right-[-8px]"}></div>
+          <div
+            className={
+              getTotalCartAmount() === 0
+                ? ""
+                : "absolute min-w-[10px] min-h-[10px] bg-[tomato] rounded-[5px] top-[-8px] right-[-8px]"
+            }
+          ></div>
         </div>
-        <button
-          onClick={() => setShowLogin(true)}
-          className="bg-transparent lg:text-[16px] text-[15px]   lg:px-[30px] md:px-[25px] px-[18px] lg:py-[10px] md:py-[7px] py-[3px] border border-[tomato] border-solid rounded-[50px] text-[#49557e] hover:bg-[#fff4f2] duration-1000"
-        >
-          sign in
-        </button>
+        {token ? (
+          <button
+            onClick={() => setShowLogin(true)}
+            className="bg-transparent lg:text-[16px] text-[15px]   lg:px-[30px] md:px-[25px] px-[18px] lg:py-[10px] md:py-[7px] py-[3px] border border-[tomato] border-solid rounded-[50px] text-[#49557e] hover:bg-[#fff4f2] duration-1000"
+          >
+            sign in
+          </button>
+        ) : (
+          <div className="nav-profile">
+            <img src={assets.profile_icon} alt="" />
+            <ul className="nav-profile-dropdown">
+              <li>
+                <img src={assets.bag_icon} alt="" />
+                <p>Orders</p>
+              </li>
+              <hr />
+              <li>
+                <img src={assets.logout_icon} alt="" />
+                <p>Logout</p>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </div>
   );
