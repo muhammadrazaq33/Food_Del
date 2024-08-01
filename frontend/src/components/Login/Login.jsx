@@ -1,26 +1,44 @@
-import React, { useEffect, useState } from 'react'
-import { assets } from '../../assets/assets';
+import React, { useContext, useState } from "react";
+import { assets } from "../../assets/assets";
+import { StoreContext } from "../../Context/StoreContext";
+import axios from "axios";
 
 const Login = ({ setShowLogin }) => {
+  const { url, setToken } = useContext(StoreContext);
   const [currentState, setCurrentState] = useState("Sign up");
   const [data, setData] = useState({
     name: "",
     email: "",
-    password:""
+    password: "",
   });
 
   const onChangeHandler = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    setData(data => ({ ...data, [name]: value }));
-  }
+    setData((data) => ({ ...data, [name]: value }));
+  };
 
-  useEffect(() => {
-console.log(data)
-  },[data])
+  const onLogin = async (e) => {
+    e.preventDefault();
+    let newUrl = url;
+    if (currentState === "Login") {
+      newUrl += "/api/user/login";
+    } else {
+      newUrl += "/api/user/register";
+    }
+    const response = await axios.post(newUrl, data);
+    if (response.data.success) {
+      setToken(response.data.token);
+      localStorage.setItem("token", response.data.token);
+      setShowLogin(false);
+    } else {
+      alert(response.data.message);
+    }
+  };
+
   return (
     <div className="absolute z-[1] w-[100%] h-[100%] bg-[#00000090] grid">
-      <form className="login-container">
+      <form onSubmit={onLogin} className="login-container">
         <div className="flex justify-between items-center text-black">
           <h1 className="font-semibold text-[18px]">{currentState}</h1>
           <img
@@ -63,7 +81,10 @@ console.log(data)
             required
           />
         </div>
-        <button className="border-none p-[10px] rounded-[4px] cursor-pointer bg-[tomato] text-[15px] text-[white] ">
+        <button
+          type="submit"
+          className="border-none p-[10px] rounded-[4px] cursor-pointer bg-[tomato] text-[15px] text-[white] "
+        >
           {currentState === "Sign up" ? "Create Account" : "Login"}
         </button>
         <div className="flex items-start gap-[8px] -mt-[15px]">
@@ -98,4 +119,4 @@ console.log(data)
   );
 };
 
-export default Login
+export default Login;
