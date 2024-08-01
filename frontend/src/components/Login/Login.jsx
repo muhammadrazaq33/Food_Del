@@ -1,12 +1,25 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { assets } from '../../assets/assets';
 
 const Login = ({ setShowLogin }) => {
   const [currentState, setCurrentState] = useState("Sign up");
+  const [data, setData] = useState({
+    name: "",
+    email: "",
+    password:""
+  });
+
+  const onChangeHandler = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    setData(data => ({ ...data, [name]: value }));
+  }
+
+  useEffect(() => {
+console.log(data)
+  },[data])
   return (
-    <div
-      className="absolute z-[1] w-[100%] h-[100%] bg-[#00000090] grid"
-    >
+    <div className="absolute z-[1] w-[100%] h-[100%] bg-[#00000090] grid">
       <form className="login-container">
         <div className="flex justify-between items-center text-black">
           <h1 className="font-semibold text-[18px]">{currentState}</h1>
@@ -24,6 +37,9 @@ const Login = ({ setShowLogin }) => {
             <input
               className="outline-none p-[10px] rounded-[4px] border-[1px] border-[#c9c9c9]"
               type="text"
+              name="name"
+              onChange={onChangeHandler}
+              value={data.name}
               placeholder="Enter name"
               required
             />
@@ -31,12 +47,18 @@ const Login = ({ setShowLogin }) => {
           <input
             className="outline-none p-[10px] rounded-[4px] border-[1px] border-[#c9c9c9]"
             type="email"
+            name="email"
+            onChange={onChangeHandler}
+            value={data.email}
             placeholder="Enter email"
             required
           />
           <input
             className="outline-none p-[10px] rounded-[4px] border-[1px] border-[#c9c9c9]"
             type="password"
+            name="password"
+            onChange={onChangeHandler}
+            value={data.password}
             placeholder="Enter password"
             required
           />
