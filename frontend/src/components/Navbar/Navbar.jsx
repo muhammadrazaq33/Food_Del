@@ -18,11 +18,12 @@ const Navbar = ({setShowLogin}) => {
   return (
     <div className="flex justify-between items-center py-[20px]">
       <Link to={"/"}>
-        <img
+        {/* <img
           src={assets.logo}
           alt=""
           className=" lg:w-[150px] md:w-[120px] w-[100px] lg:h-[33px] md:h-[28px] h-[24px]"
-        />
+        /> */}
+        <h1 className="text-[tomato] lg:text-[2.3rem] md:text-[2.1rem] text-[1.8rem] font-bold">JustEat.</h1>
       </Link>
       <ul className="md:flex hidden lg:gap-x-[20px] md:gap-x-[13px]  text-[#49557e] lg:text-[18px] md:text-[15px]">
         <Link
