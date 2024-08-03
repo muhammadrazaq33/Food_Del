@@ -2,7 +2,7 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div className='bg-[url("/header_img.png")] relative h-[38vw] bg-contain bg-no-repeat mx-auto my-[30px]'>
+    <div className='bg-[url("/hero.webp")] relative h-[35vw] bg-cover rounded-xl bg-no-repeat mx-auto my-[30px]'>
       <div className="header_content flex flex-col items-start gap-[1.2vw] absolute bottom-[18%] left-[6vw] max-w-[55%]">
         <h1 className="header-heading">Order your favorite food here</h1>
         <p className="md:block hidden text-[white] font-normal text-[1.2vw]">
