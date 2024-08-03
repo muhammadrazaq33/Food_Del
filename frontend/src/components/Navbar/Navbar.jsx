@@ -1,12 +1,20 @@
 import React, { useContext, useState } from 'react'
 import { assets } from '../../assets/assets'
 import "./Navbar.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../Context/StoreContext';
 
 const Navbar = ({setShowLogin}) => {
   const [menu, setMenu] = useState("home");
-  const { getTotalCartAmount,token,setToken } = useContext(StoreContext);
+  const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
+  const navigate = useNavigate();
+  
+  const Logout = () => {
+    localStorage.removeItem("token");
+    setToken("");
+    navigate("/")
+}
+
   return (
     <div className="flex justify-between items-center py-[20px]">
       <Link to={"/"}>
@@ -66,7 +74,7 @@ const Navbar = ({setShowLogin}) => {
             }
           ></div>
         </div>
-        {token ? (
+        {!token ? (
           <button
             onClick={() => setShowLogin(true)}
             className="bg-transparent lg:text-[16px] text-[15px]   lg:px-[30px] md:px-[25px] px-[18px] lg:py-[10px] md:py-[7px] py-[3px] border border-[tomato] border-solid rounded-[50px] text-[#49557e] hover:bg-[#fff4f2] duration-1000"
@@ -82,7 +90,7 @@ const Navbar = ({setShowLogin}) => {
                 <p>Orders</p>
               </li>
               <hr />
-              <li>
+              <li onClick={Logout}>
                 <img src={assets.logout_icon} alt="" />
                 <p>Logout</p>
               </li>
