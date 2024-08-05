@@ -1,6 +1,6 @@
 import orderModel from "../models/orderModel.js";
 import userModel from "../models/UserModel.js";
-import stripe from "stripe";
+import Stripe from "stripe";
 
 
 const placeOrder = async (req, res) => {

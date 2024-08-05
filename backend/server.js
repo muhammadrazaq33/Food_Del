@@ -38,14 +38,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`server started on http://localhost:${port}`)
 })
-
-
-// const mongoose = require("mongoose");
-
-// const UserSchema = new mongoose.Schema({
-//     name: String,
-//     email: String,
-//     password:String
-// });
-
-// module.exports = mongoose.model("users", UserSchema); 
