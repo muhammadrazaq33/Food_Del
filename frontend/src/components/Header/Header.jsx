@@ -9,7 +9,7 @@ const Header = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde tempore
           minus ex possimus cumque illum?
         </p>
-        <button className="lg:px-[25px] md:px-[22px] sm:px-[18px] px-[13px]  lg:py-[12px] md:py-[10px] sm:py-[8px] py-[5px] bg-[white] border-none rou3nded-[40px] text-[#747474] sm:text-[17px] text-[12px]">
+        <button className="lg:px-[25px] md:px-[22px] sm:px-[18px] px-[13px]  lg:py-[12px] md:py-[10px] sm:py-[8px] py-[5px] bg-[white] border-none rounded-[40px] text-[#747474] sm:text-[17px] text-[12px]">
           View Menu
         </button>
       </div>
