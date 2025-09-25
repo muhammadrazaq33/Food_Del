@@ -1,5 +1,5 @@
-import React from 'react'
-import { assets } from '../../assets/assets'
+import React from "react";
+import { assets } from "../../assets/assets";
 
 const Footer = () => {
   return (
@@ -10,7 +10,10 @@ const Footer = () => {
       <div className="footer_content">
         {/* left side */}
         <div className="flex flex-col items-start gap-[20px]">
-          <img src={assets.logo} alt="" />
+          {/* <img src={assets.logo} alt="" /> */}
+          <h1 className="text-[tomato] lg:text-[2.3rem] md:text-[2.1rem] text-[1.8rem] font-bold">
+            Foodify.
+          </h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem,
             repudiandae est. Incidunt facilis neque rerum, voluptatem
@@ -44,9 +47,9 @@ const Footer = () => {
         </div>
       </div>
       <hr className="w-[100%] h-[2px] my-[20px] mx-0 bg-[grey] border-none" />
-      <p>Copyright 2024 &copy; Tomato.com - All Right Reserved</p>
+      <p>Copyright 2024 &copy; Foodify.com - All Right Reserved</p>
     </div>
   );
-}
+};
 
-export default Footer
+export default Footer;
