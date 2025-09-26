@@ -7,13 +7,13 @@ import cors from "cors";
 import { connectDB } from "./config/db.js";
 import foodRouter from "./routes/foodRouter.js";
 import userRouter from "./routes/userRoute.js";
-import "dotenv/config.js"
+import "dotenv/config.js";
 import cartRouter from "./routes/cartRouter.js";
 import orderRouter from "./routes/orderRouter.js";
 
 //app config
 const app = express();
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 // middlewares
 app.use(express.json());
@@ -30,11 +30,10 @@ app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
 
-
 app.get("/", (req, res) => {
-    res.send("api working")
-})
+  res.send("api working");
+});
 
 app.listen(port, () => {
-    console.log(`server started on http://localhost:${port}`)
-})
+  console.log(`server started on http://localhost:${port}`);
+});
